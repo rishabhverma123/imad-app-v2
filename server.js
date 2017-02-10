@@ -109,7 +109,7 @@ function createTemplate(data){
     
     `;
 
-return "htmlTemplate";
+return htmlTemplate;
 }
 
 app.get('/ui/style.css', function (req, res) {
