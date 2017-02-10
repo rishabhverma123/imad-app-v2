@@ -9,6 +9,30 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var articleOne={
+    title:"article one",
+    heading:"Article one",
+    date : "february 10 2017",
+    content:`  <div>
+                <p>
+                    Hello everyone this is fun learning with node!!
+                </p>
+            </div>
+            <div>
+                <p>
+                    Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                     Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                </p> 
+            </div>`
+    
+    
+};
+
+
+
+
+
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
