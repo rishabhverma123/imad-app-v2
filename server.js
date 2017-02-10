@@ -28,17 +28,58 @@ var articleOne={
     
 };
 
+function createTemplate(data){
+    var date= data.date;
+    var content = data.content;
+    var heading= data.heading;
+    var title= data.title;
 
+    var htmlTemplate=`
+    
+    <html>
+        <head>
+            <title>
+               ${title}
+            </title> 
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+           <link href="/ui/style.css" rel="stylesheet" />
+          
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                <h1>
+                   ${heading}
+                </h1>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                        <a href="http://rishabhverma123.imad.hasura-app.io/">Home</a>
+                    </p>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                       ${date}
+                    </p>
+                </div>
+                ${content}
+            </div>
+        </body>    
+    </html>
+    
+    `;
 
-
-
+return "htmlTemplate";
+}
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
 app.get('/article-one.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.sendFile(createTemplate(articleOne));
 });
 
 app.get('/article-two.html', function (req, res) {
