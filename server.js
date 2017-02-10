@@ -9,23 +9,61 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articleOne={
-    title:"article one",
-    heading:"Article one",
-    date : "february 10 2017",
-    content:`  <div>
-                <p>
-                    Hello everyone this is fun learning with node!!
-                </p>
-            </div>
-            <div>
-                <p>
-                    Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
-                     Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
-                </p> 
-            </div>`
+var articles={
     
-    
+     'article-one':{
+        title:"article one",
+        heading:"Article one",
+        date : "february 10 2017",
+        content:`  <div>
+                    <p>
+                        Hello everyone this is fun learning with node!!
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                         Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                    </p> 
+                </div>`
+        
+        
+    },
+    'article-two':{
+        
+        title:"article two",
+        heading:"Article two",
+        date : "february 10 2017",
+        content:`  <div>
+                    <p>
+                        Hello everyone this is fun learning with node!!
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                         Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                    </p> 
+                </div>`
+        
+    },
+    'article-three':{
+        title:"article three",
+        heading:"Article three",
+        date : "february 10 2017",
+        content:`  <div>
+                    <p>
+                        Hello everyone this is fun learning with node!!
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                         Hello everyone this is fun learning with node!! Hello everyone this is fun learning with node!!
+                    </p> 
+                </div>`
+        
+    }, 
 };
 
 function createTemplate(data){
@@ -78,8 +116,10 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/article-one.html', function (req, res) {
-  res.sendFile(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    
+    var articleName=req.params.articleName;
+  res.sendFile(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two.html', function (req, res) {
